@@ -1,10 +1,9 @@
 namespace KnockKnockServer;
 
-// Indeholder reglerne for samtalen - ved intet om TCP
-class KnockKnockProtocol
+// Indeholder reglerne for samtalen - ved intet om TCP.
+// Hver klient får sin egen instans, så tilstanden deles ikke mellem klienter.
+class KnockKnockProtocol : IConversation
 {
-    public const string EndOfConversation = "Bye!";
-
     private readonly KnockKnockJoke _joke;
     private ConversationState _state = ConversationState.WaitingForWhosThere;
 
@@ -29,6 +28,7 @@ class KnockKnockProtocol
                     _state = ConversationState.WaitingForWho;
                     return _joke.Who;
                 }
+                // Forkert svar: tilstanden ændres ikke
                 return "You are supposed to say: Who's there?";
 
             case ConversationState.WaitingForWho:
@@ -36,13 +36,13 @@ class KnockKnockProtocol
                 if (input.Equals(expected, StringComparison.OrdinalIgnoreCase))
                 {
                     _state = ConversationState.Finished;
-                    return $"{_joke.Punchline}\n{EndOfConversation}";
+                    return _joke.Punchline;
                 }
                 return $"You are supposed to say: {expected}";
 
             case ConversationState.Finished:
             default:
-                return EndOfConversation;
+                return "The joke is over.";
         }
     }
 }

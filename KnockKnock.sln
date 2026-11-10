@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnockKnockServer", "KnockKn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnockKnockClient", "KnockKnockClient\KnockKnockClient.csproj", "{C17C0D82-7EC9-4597-B8AF-1E1A49E5F9C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnockKnockServer.Tests", "KnockKnockServer.Tests\KnockKnockServer.Tests.csproj", "{10CFA4EF-3A14-45C4-A1B2-B9D660F23187}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{C17C0D82-7EC9-4597-B8AF-1E1A49E5F9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C17C0D82-7EC9-4597-B8AF-1E1A49E5F9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C17C0D82-7EC9-4597-B8AF-1E1A49E5F9C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10CFA4EF-3A14-45C4-A1B2-B9D660F23187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10CFA4EF-3A14-45C4-A1B2-B9D660F23187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10CFA4EF-3A14-45C4-A1B2-B9D660F23187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10CFA4EF-3A14-45C4-A1B2-B9D660F23187}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

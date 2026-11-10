@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="800" viewBox="0 0 1800 800">
+<defs>
+  <marker id="open" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse">
+    <path d="M1 1 L11 6 L1 11" fill="none" stroke="#334155" stroke-width="1.4"/></marker>
+  <marker id="triangle" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="16" markerHeight="16" orient="auto-start-reverse">
+    <path d="M1 1 L15 8 L1 15 Z" fill="#ffffff" stroke="#334155" stroke-width="1.3"/></marker>
+  <marker id="filleddiamond" viewBox="0 0 20 12" refX="1" refY="6" markerWidth="20" markerHeight="12" orient="auto-start-reverse">
+    <path d="M1 6 L10 1 L19 6 L10 11 Z" fill="#334155"/></marker>
+  <marker id="hollowdiamond" viewBox="0 0 20 12" refX="1" refY="6" markerWidth="20" markerHeight="12" orient="auto-start-reverse">
+    <path d="M1 6 L10 1 L19 6 L10 11 Z" fill="#ffffff" stroke="#334155" stroke-width="1.3"/></marker>
+</defs>
+<rect width="1800" height="800" fill="#ffffff"/>
+<text x="900.0" y="36" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#0f172a">Knock Knock Server 2.0 – klassediagram</text>
+<rect x="20" y="60" width="430" height="620" rx="10" fill="#f1f6ff" stroke="#2563eb" stroke-width="1.5"/>
+<path d="M20 90 V70 Q20 60 30 60 H440 Q450 60 450 70 V90 Z" fill="#2563eb"/>
+<text x="34" y="81" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#ffffff">Netværk (TCP)</text>
+<rect x="470" y="60" width="620" height="620" rx="10" fill="#f2fbf4" stroke="#16a34a" stroke-width="1.5"/>
+<path d="M470 90 V70 Q470 60 480 60 H1080 Q1090 60 1090 70 V90 Z" fill="#16a34a"/>
+<text x="484" y="81" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#ffffff">Samtalelogik (ved intet om TCP)</text>
+<rect x="1110" y="60" width="670" height="340" rx="10" fill="#fff6ef" stroke="#ea580c" stroke-width="1.5"/>
+<path d="M1110 90 V70 Q1110 60 1120 60 H1770 Q1780 60 1780 70 V90 Z" fill="#ea580c"/>
+<text x="1124" y="81" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#ffffff">Valg af vittighed (Strategy Pattern)</text>
+<rect x="1110" y="420" width="670" height="260" rx="10" fill="#f7f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+<path d="M1110 450 V430 Q1110 420 1120 420 H1770 Q1780 420 1780 430 V450 Z" fill="#7c3aed"/>
+<text x="1124" y="441" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#ffffff">Opstart og konfiguration (Options Pattern + DI)</text>
+<rect x="40" y="110" width="390" height="186" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="40" y="110" width="390" height="26" rx="4" fill="#e8eef6" stroke="#334155" stroke-width="1.2"/>
+<text x="235.0" y="128" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">KnockKnockTcpServer</text>
+<line x1="40" y1="136" x2="430" y2="136" stroke="#334155" stroke-width="1"/>
+<text x="50" y="152" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_options : ServerOptions</text>
+<text x="50" y="168" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_conversationFactory : IConversationFactory</text>
+<text x="50" y="184" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_activeSessions : Dictionary&lt;ClientSession, Thread&gt;</text>
+<text x="50" y="200" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_lock : object</text>
+<text x="50" y="216" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_nextClientId : int</text>
+<line x1="40" y1="224" x2="430" y2="224" stroke="#334155" stroke-width="1"/>
+<text x="50" y="240" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Run(stoppingToken : CancellationToken) : void</text>
+<text x="50" y="256" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-StartSession(client : TcpClient) : void</text>
+<text x="50" y="272" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-RunSession(session : ClientSession) : void</text>
+<text x="50" y="288" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-CloseAllSessions() : void</text>
+<rect x="40" y="400" width="390" height="216" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="40" y="400" width="390" height="40" rx="4" fill="#e8eef6" stroke="#334155" stroke-width="1.2"/>
+<text x="235.0" y="415" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#475569">«IDisposable»</text>
+<text x="235.0" y="432" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">ClientSession</text>
+<line x1="40" y1="440" x2="430" y2="440" stroke="#334155" stroke-width="1"/>
+<text x="50" y="456" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933" text-decoration="underline">+Goodbye : string = &quot;Bye!&quot;</text>
+<text x="50" y="472" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_client : TcpClient</text>
+<text x="50" y="488" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_reader : StreamReader</text>
+<text x="50" y="504" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_writer : StreamWriter</text>
+<text x="50" y="520" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_writeLock : object</text>
+<text x="50" y="536" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Id : int</text>
+<line x1="40" y1="544" x2="430" y2="544" stroke="#334155" stroke-width="1"/>
+<text x="50" y="560" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Run(conversation : IConversation) : void</text>
+<text x="50" y="576" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Close(reason : string) : void</text>
+<text x="50" y="592" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Dispose() : void</text>
+<text x="50" y="608" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-Send(message : string) : void</text>
+<path d="M40 620 H418 L430 632 V668 H40 Z" fill="#fff8db" stroke="#c9a227" stroke-width="1"/>
+<path d="M418 620 V632 H430" fill="none" stroke="#c9a227" stroke-width="1"/>
+<text x="50" y="637" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">_activeSessions deles mellem hovedtråden og</text>
+<text x="50" y="652" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">klienttrådene → beskyttes af _lock</text>
+<path d="M235 296 L241 306 L235 316 L229 306 Z" fill="#334155"/>
+<path d="M235 316 L235 400" fill="none" stroke="#334155" stroke-width="1.3" marker-end="url(#open)"/>
+<text x="244" y="326" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#1f2933">1</text>
+<text x="244" y="362" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#475569" font-style="italic">én Thread pr. klient</text>
+<text x="244" y="392" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#1f2933">0..MaxClients</text>
+<rect x="490" y="110" width="260" height="64" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="490" y="110" width="260" height="40" rx="4" fill="#ede9fe" stroke="#334155" stroke-width="1.2"/>
+<text x="620.0" y="125" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#475569">«interface»</text>
+<text x="620.0" y="142" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933" font-style="italic">IConversationFactory</text>
+<line x1="490" y1="150" x2="750" y2="150" stroke="#334155" stroke-width="1"/>
+<text x="500" y="166" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Create() : IConversation</text>
+<rect x="810" y="110" width="260" height="74" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="810" y="110" width="260" height="26" rx="4" fill="#e8eef6" stroke="#334155" stroke-width="1.2"/>
+<text x="940.0" y="128" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">KnockKnockConversationFactory</text>
+<line x1="810" y1="136" x2="1070" y2="136" stroke="#334155" stroke-width="1"/>
+<text x="820" y="152" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_jokeSelector : IJokeSelector</text>
+<line x1="810" y1="160" x2="1070" y2="160" stroke="#334155" stroke-width="1"/>
+<text x="820" y="176" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Create() : IConversation</text>
+<rect x="490" y="250" width="280" height="104" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="490" y="250" width="280" height="40" rx="4" fill="#ede9fe" stroke="#334155" stroke-width="1.2"/>
+<text x="630.0" y="265" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#475569">«interface»</text>
+<text x="630.0" y="282" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933" font-style="italic">IConversation</text>
+<line x1="490" y1="290" x2="770" y2="290" stroke="#334155" stroke-width="1"/>
+<text x="500" y="306" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+IsFinished : bool</text>
+<line x1="490" y1="314" x2="770" y2="314" stroke="#334155" stroke-width="1"/>
+<text x="500" y="330" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Start() : string</text>
+<text x="500" y="346" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+HandleInput(input : string) : string</text>
+<rect x="810" y="250" width="260" height="122" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="810" y="250" width="260" height="26" rx="4" fill="#e8eef6" stroke="#334155" stroke-width="1.2"/>
+<text x="940.0" y="268" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">KnockKnockProtocol</text>
+<line x1="810" y1="276" x2="1070" y2="276" stroke="#334155" stroke-width="1"/>
+<text x="820" y="292" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_joke : KnockKnockJoke</text>
+<text x="820" y="308" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_state : ConversationState</text>
+<text x="820" y="324" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+IsFinished : bool</text>
+<line x1="810" y1="332" x2="1070" y2="332" stroke="#334155" stroke-width="1"/>
+<text x="820" y="348" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Start() : string</text>
+<text x="820" y="364" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+HandleInput(input : string) : string</text>
+<rect x="490" y="450" width="230" height="96" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="490" y="450" width="230" height="40" rx="4" fill="#fde7e7" stroke="#334155" stroke-width="1.2"/>
+<text x="605.0" y="465" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#475569">«enumeration»</text>
+<text x="605.0" y="482" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">ConversationState</text>
+<line x1="490" y1="490" x2="720" y2="490" stroke="#334155" stroke-width="1"/>
+<text x="500" y="506" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">WaitingForWhosThere</text>
+<text x="500" y="522" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">WaitingForWho</text>
+<text x="500" y="538" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">Finished</text>
+<rect x="810" y="450" width="260" height="66" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="810" y="450" width="260" height="26" rx="4" fill="#e8eef6" stroke="#334155" stroke-width="1.2"/>
+<text x="940.0" y="468" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">KnockKnockJoke</text>
+<line x1="810" y1="476" x2="1070" y2="476" stroke="#334155" stroke-width="1"/>
+<text x="820" y="492" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Who : string</text>
+<text x="820" y="508" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Punchline : string</text>
+<path d="M490 600 H1058 L1070 612 V648 H490 Z" fill="#fff8db" stroke="#c9a227" stroke-width="1"/>
+<path d="M1058 600 V612 H1070" fill="none" stroke="#c9a227" stroke-width="1"/>
+<text x="500" y="617" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">Ny KnockKnockProtocol pr. klient → hver klient har sin egen tilstand,</text>
+<text x="500" y="632" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">som aldrig deles med andre klienter.</text>
+<path d="M810 142 L750 142" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#triangle)"/>
+<path d="M810 302 L770 302" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#triangle)"/>
+<path d="M940 184 L940 250" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<text x="948" y="222" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#475569">«create»</text>
+<path d="M620 174 L620 250" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<text x="628" y="222" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#475569">«returnerer»</text>
+<path d="M860 372 L860 420 L605 420 L605 450" fill="none" stroke="#334155" stroke-width="1.3" marker-end="url(#open)"/>
+<text x="868" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#475569">_state</text>
+<path d="M1010 372 L1010 450" fill="none" stroke="#334155" stroke-width="1.3" marker-end="url(#open)"/>
+<text x="1018" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#475569">_joke</text>
+<text x="1018" y="444" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#1f2933">1</text>
+<path d="M430 142 L490 142" fill="none" stroke="#334155" stroke-width="1.3" marker-end="url(#open)"/>
+<path d="M430 440 L458 440 L458 330 L490 330" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<text x="434" y="432" font-family="Segoe UI, Arial, sans-serif" font-size="10.5" font-weight="normal" text-anchor="start" fill="#475569">«use»</text>
+<rect x="1330" y="110" width="240" height="64" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="1330" y="110" width="240" height="40" rx="4" fill="#ede9fe" stroke="#334155" stroke-width="1.2"/>
+<text x="1450.0" y="125" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#475569">«interface»</text>
+<text x="1450.0" y="142" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933" font-style="italic">IJokeSelector</text>
+<line x1="1330" y1="150" x2="1570" y2="150" stroke="#334155" stroke-width="1"/>
+<text x="1340" y="166" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+SelectJoke() : KnockKnockJoke</text>
+<rect x="1125" y="250" width="310" height="90" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="1125" y="250" width="310" height="26" rx="4" fill="#e8eef6" stroke="#334155" stroke-width="1.2"/>
+<text x="1280.0" y="268" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">RandomJokeSelector</text>
+<line x1="1125" y1="276" x2="1435" y2="276" stroke="#334155" stroke-width="1"/>
+<text x="1135" y="292" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_jokes : KnockKnockJoke[]</text>
+<line x1="1125" y1="300" x2="1435" y2="300" stroke="#334155" stroke-width="1"/>
+<text x="1135" y="316" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+RandomJokeSelector(IOptions&lt;JokeOptions&gt;)</text>
+<text x="1135" y="332" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+SelectJoke() : KnockKnockJoke</text>
+<rect x="1455" y="250" width="310" height="122" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="1455" y="250" width="310" height="26" rx="4" fill="#e8eef6" stroke="#334155" stroke-width="1.2"/>
+<text x="1610.0" y="268" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">SequentialJokeSelector</text>
+<line x1="1455" y1="276" x2="1765" y2="276" stroke="#334155" stroke-width="1"/>
+<text x="1465" y="292" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_jokes : KnockKnockJoke[]</text>
+<text x="1465" y="308" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_lock : object</text>
+<text x="1465" y="324" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-_nextIndex : int</text>
+<line x1="1455" y1="332" x2="1765" y2="332" stroke="#334155" stroke-width="1"/>
+<text x="1465" y="348" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+SequentialJokeSelector(IOptions&lt;JokeOptions&gt;)</text>
+<text x="1465" y="364" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+SelectJoke() : KnockKnockJoke</text>
+<path d="M1125 352 H1423 L1435 364 V386 H1125 Z" fill="#fff8db" stroke="#c9a227" stroke-width="1"/>
+<path d="M1423 352 V364 H1435" fill="none" stroke="#c9a227" stroke-width="1"/>
+<text x="1135" y="369" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">Random.Shared er trådsikker → ingen lock</text>
+<path d="M1590 108 H1753 L1765 120 V172 H1590 Z" fill="#fff8db" stroke="#c9a227" stroke-width="1"/>
+<path d="M1753 108 V120 H1765" fill="none" stroke="#c9a227" stroke-width="1"/>
+<text x="1600" y="125" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">lock om _nextIndex:</text>
+<text x="1600" y="140" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">to klienter kan ikke få</text>
+<text x="1600" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">samme index (race condition)</text>
+<path d="M1280 250 L1280 212 L1450 212 L1450 174" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#triangle)"/>
+<path d="M1610 250 L1610 212 L1450 212" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4"/>
+<text x="1458" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#475569">realiserer</text>
+<path d="M1070 142 L1330 142" fill="none" stroke="#334155" stroke-width="1.3" marker-end="url(#open)"/>
+<text x="1120" y="134" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="start" fill="#475569">_jokeSelector</text>
+<rect x="1130" y="450" width="280" height="80" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="1130" y="450" width="280" height="40" rx="4" fill="#e8eef6" stroke="#334155" stroke-width="1.2"/>
+<text x="1270.0" y="465" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="normal" text-anchor="middle" fill="#475569">«top-level statements»</text>
+<text x="1270.0" y="482" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">Program</text>
+<line x1="1130" y1="490" x2="1410" y2="490" stroke="#334155" stroke-width="1"/>
+<text x="1140" y="506" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Main(args : string[]) : int</text>
+<text x="1140" y="522" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">-BuildHost(args : string[]) : IHost</text>
+<path d="M1130 548 H1398 L1410 560 V660 H1130 Z" fill="#fff8db" stroke="#c9a227" stroke-width="1"/>
+<path d="M1398 548 V560 H1410" fill="none" stroke="#c9a227" stroke-width="1"/>
+<text x="1140" y="565" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">Binder sektionerne i appsettings.json til</text>
+<text x="1140" y="580" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">Options-klasserne og registrerer alt i DI.</text>
+<text x="1140" y="595" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">JokeSelection:Strategy bestemmer, hvilken</text>
+<text x="1140" y="610" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">IJokeSelector der injiceres (keyed services).</text>
+<text x="1140" y="625" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">Ugyldig konfiguration stopper opstarten</text>
+<text x="1140" y="640" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="normal" text-anchor="start" fill="#5c4a00">med en læsbar fejl (ValidateOnStart).</text>
+<rect x="1470" y="440" width="295" height="66" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="1470" y="440" width="295" height="26" rx="4" fill="#e8eef6" stroke="#334155" stroke-width="1.2"/>
+<text x="1617.5" y="458" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">ServerOptions</text>
+<line x1="1470" y1="466" x2="1765" y2="466" stroke="#334155" stroke-width="1"/>
+<text x="1480" y="482" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Port : int</text>
+<text x="1480" y="498" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+MaxClients : int</text>
+<rect x="1470" y="518" width="295" height="50" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="1470" y="518" width="295" height="26" rx="4" fill="#e8eef6" stroke="#334155" stroke-width="1.2"/>
+<text x="1617.5" y="536" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">JokeSelectionOptions</text>
+<line x1="1470" y1="544" x2="1765" y2="544" stroke="#334155" stroke-width="1"/>
+<text x="1480" y="560" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Strategy : string</text>
+<rect x="1470" y="580" width="295" height="50" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.2"/>
+<rect x="1470" y="580" width="295" height="26" rx="4" fill="#e8eef6" stroke="#334155" stroke-width="1.2"/>
+<text x="1617.5" y="598" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1f2933">JokeOptions</text>
+<line x1="1470" y1="606" x2="1765" y2="606" stroke="#334155" stroke-width="1"/>
+<text x="1480" y="622" font-family="Consolas, 'Courier New', monospace" font-size="11.5" font-weight="normal" text-anchor="start" fill="#1f2933">+Jokes : List&lt;KnockKnockJoke&gt;</text>
+<path d="M1410 490 L1440 490" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4"/>
+<path d="M1440 473 L1440 605" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4"/>
+<path d="M1440 473 L1470 473" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<path d="M1440 543 L1470 543" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<path d="M1440 605 L1470 605" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<path d="M1615 630 L1621 640 L1615 650 L1609 640 Z" fill="#ffffff" stroke="#334155" stroke-width="1.3"/>
+<path d="M1615 650 L1615 700 L1100 700 L1100 483 L1070 483" fill="none" stroke="#334155" stroke-width="1.3" marker-end="url(#open)"/>
+<text x="1076" y="502" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#1f2933">1..*</text>
+<rect x="20" y="720" width="1760" height="56" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+<text x="36" y="752" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#1f2933">Signatur:</text>
+<path d="M130 748 L180 748" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#triangle)"/>
+<text x="190" y="752" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#1f2933">realiserer interface</text>
+<path d="M420 748 L470 748" fill="none" stroke="#334155" stroke-width="1.3" marker-end="url(#open)"/>
+<text x="480" y="752" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#1f2933">association (har en reference)</text>
+<path d="M710 748 L760 748" fill="none" stroke="#334155" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#open)"/>
+<text x="770" y="752" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#1f2933">afhængighed / «create» / «use»</text>
+<path d="M1000 748 L1050 748" fill="none" stroke="#334155" stroke-width="1.3" marker-end="url(#open)" marker-start="url(#filleddiamond)"/>
+<text x="1060" y="752" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#1f2933">komposition (ejer)</text>
+<path d="M1290 748 L1340 748" fill="none" stroke="#334155" stroke-width="1.3" marker-end="url(#open)" marker-start="url(#hollowdiamond)"/>
+<text x="1350" y="752" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="normal" text-anchor="start" fill="#1f2933">aggregering (indeholder)</text>
+<text x="1585" y="752" font-family="Consolas, monospace" font-size="12" font-weight="normal" text-anchor="start" fill="#1f2933">+ public   - private</text>
+</svg>
