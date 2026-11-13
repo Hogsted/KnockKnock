@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace KnockKnockServer;
 
-// Ansvar: acceptere TCP-forbindelser og starte en trÃ¥d pr. klient.
+// Ansvar: acceptere TCP-forbindelser og starte en tråd pr. klient.
 // Ved intet om vittigheder eller samtalens regler.
 class KnockKnockTcpServer
 {
@@ -13,11 +13,11 @@ class KnockKnockTcpServer
     private readonly ILogger _logger;
     private readonly ILogger _sessionLogger;
 
-    // Delt mellem hovedtrÃ¥den og klienttrÃ¥dene - beskyttes af _lock
+    // Delt mellem hovedtråden og klienttrådene - beskyttes af _lock
     private readonly Dictionary<ClientSession, Thread> _activeSessions = new();
     private readonly object _lock = new();
 
-    // Bruges kun af hovedtrÃ¥den, sÃ¥ der er ikke behov for synkronisering
+    // Bruges kun af hovedtråden, så der er ikke behov for synkronisering
     private int _nextClientId;
 
     public KnockKnockTcpServer(IOptions<ServerOptions> options, IConversationFactory conversationFactory, ILoggerFactory loggerFactory)
@@ -28,16 +28,16 @@ class KnockKnockTcpServer
         _sessionLogger = loggerFactory.CreateLogger<ClientSession>();
     }
 
-    // KÃ¸rer pÃ¥ hovedtrÃ¥den og blokerer, indtil stoppingToken annulleres (Ctrl+C)
+    // Kører på hovedtråden og blokerer, indtil stoppingToken annulleres (Ctrl+C)
     public void Run(CancellationToken stoppingToken)
     {
-        // Lytter pÃ¥ bÃ¥de IPv4 og IPv6, sÃ¥ "localhost" (::1) forbinder med det samme
+        // Lytter på både IPv4 og IPv6, så "localhost" (::1) forbinder med det samme
         TcpListener listener = TcpListener.Create(_options.Port);
         listener.Start();
-        _logger.LogInformation("Knock Knock Server lytter pÃ¥ port {Port} (maks. {MaxClients} klienter). Tryk Ctrl+C for at stoppe.",
+        _logger.LogInformation("Knock Knock Server lytter på port {Port} (maks. {MaxClients} klienter). Tryk Ctrl+C for at stoppe.",
             _options.Port, _options.MaxClients);
 
-        // Stop() fÃ¥r det blokerende AcceptTcpClient() til at kaste en exception, sÃ¥ lÃ¸kken afsluttes
+        // Stop() får det blokerende AcceptTcpClient() til at kaste en exception, så loop afsluttes
         using CancellationTokenRegistration registration = stoppingToken.Register(listener.Stop);
 
         try
@@ -61,7 +61,7 @@ class KnockKnockTcpServer
                 }
                 catch (Exception ex)
                 {
-                    // En fejl ved Ã©n forbindelse mÃ¥ ikke stoppe hovedtrÃ¥den
+                    // En fejl ved åbn forbindelse må ikke stoppe hovedtråden
                     _logger.LogWarning(ex, "Kunne ikke starte en session for ny klient");
                     client.Dispose();
                 }
@@ -78,7 +78,7 @@ class KnockKnockTcpServer
     {
         ClientSession session = new ClientSession(++_nextClientId, client, _sessionLogger);
 
-        // Tjek og tilfÃ¸j skal ske under samme lock, ellers kunne grÃ¦nsen overskrides
+        // Tjek og tilføj skal ske under samme lock, ellers kunne grænsen overskrides
         lock (_lock)
         {
             if (_activeSessions.Count < _options.MaxClients)
@@ -94,16 +94,16 @@ class KnockKnockTcpServer
             }
         }
 
-        _logger.LogWarning("[Klient {Id}] Afvist - maks. {MaxClients} samtidige klienter er nÃ¥et", session.Id, _options.MaxClients);
+        _logger.LogWarning("[Klient {Id}] Afvist - maks. {MaxClients} samtidige klienter er nået", session.Id, _options.MaxClients);
         session.Close("Server is busy. Please try again later.");
     }
 
-    // KÃ¸rer pÃ¥ klientens egen trÃ¥d
+    // Kører på klientens egen tråd
     private void RunSession(ClientSession session)
     {
         try
         {
-            // Hver klient fÃ¥r sin egen samtale og dermed sin egen tilstand
+            // Hver klient får sin egen samtale og dermed sin egen tilstand
             session.Run(_conversationFactory.Create());
         }
         catch (Exception ex) when (ex is IOException or ObjectDisposedException)
@@ -112,7 +112,7 @@ class KnockKnockTcpServer
         }
         catch (Exception ex)
         {
-            // En uhÃ¥ndteret exception i en trÃ¥d ville stoppe hele processen
+            // En uhåndteret exception i en tråd ville stoppe hele processen
             _logger.LogError(ex, "[Klient {Id}] Uventet fejl", session.Id);
         }
         finally
@@ -141,7 +141,7 @@ class KnockKnockTcpServer
         foreach ((ClientSession session, _) in sessions)
             session.Close("Server is shutting down.");
 
-        // Vent pÃ¥ at klienttrÃ¥dene nÃ¥r at rydde op
+        // Vent på at klienttrådene når at rydde op
         foreach ((_, Thread thread) in sessions)
             thread.Join(TimeSpan.FromSeconds(5));
 

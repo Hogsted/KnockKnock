@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 
 namespace KnockKnockServer;
 
-// Ansvar: linjebaseret TCP-kommunikation med én klient.
+// Ansvar: linjebaseret TCP-kommunikation med en klient.
 // Samtalens regler ligger i IConversation, så klassen ved intet om Knock Knock.
 class ClientSession : IDisposable
 {
@@ -26,7 +26,7 @@ class ClientSession : IDisposable
         _client = client;
         _logger = logger;
 
-        // Én UTF-8-kodet besked pr. linje
+        // En UTF-8-kodet besked pr. linje
         NetworkStream stream = client.GetStream();
         _reader = new StreamReader(stream, Encoding.UTF8);
         _writer = new StreamWriter(stream, new UTF8Encoding(false)) { AutoFlush = true, NewLine = "\n" };
@@ -69,7 +69,7 @@ class ClientSession : IDisposable
         Dispose();
     }
 
-    // Lukker socket'en. En blokeret ReadLine() i klienttråden kaster da en IOException.
+    // Lukker socketen. En blokeret ReadLine() i klienttråden kaster da en IOException.
     public void Dispose() => _client.Dispose();
 
     private void Send(string message)
